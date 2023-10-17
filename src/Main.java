@@ -33,14 +33,15 @@ public class Main {
     }
 
     public static void printAmoutDuplicate(ArrayList<String> words) {
-        final Set<String> amountDuplicate = new HashSet<>();
-        final Set<String> tracking = new HashSet<>();
+        Map<String, Integer> key = new HashMap<>();
         for (String i : words) {
-            if (!tracking.add(i)) {
-                amountDuplicate.add(i);
+            if (!key.containsKey(i)) {
+                key.put(i, 1);
+            }else {
+                key.put(i, Integer.valueOf(key.get(i) + 1));
             }
         }
-        System.out.println(tracking);
+        System.out.println(key);
     }
 
     public static void task1() {
